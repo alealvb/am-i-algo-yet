@@ -17,10 +17,22 @@
     Output: [0,1]
 */
 
+use std::collections::HashMap;
 pub struct TwoSum {}
 
 impl TwoSum {
     pub fn two_sum(nums: &Vec<i32>, target: &i32) -> Vec<i32> {
-        unimplemented!()
+        let mut seen = HashMap::new();
+
+        for i in 0..nums.len() {
+            let n = nums[i];
+            if let Some(&pair_idx) = seen.get(&n) {
+                return vec![i as i32, pair_idx];
+            }
+
+            seen.insert(target - n, i as i32);
+        }
+
+        vec![]
     }
 }
