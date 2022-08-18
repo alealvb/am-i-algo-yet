@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ "solutions" ]
 jobs:
-  build:
+  check-solutions:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
